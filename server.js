@@ -1,7 +1,10 @@
+
 const express=require('express');
 var app=express();
 const hbs = require('hbs')
 const fs= require('fs');
+
+const port = process.env.PORT || 3000; //either heroku or local 
 hbs.registerPartials(__dirname+ '/views/partials')
 
 hbs.registerHelper('getCurrentYear', ()=> {
@@ -52,4 +55,4 @@ app.get('/bad', (req,res)=> {
     })
    
 })
-app.listen(3000, ()=> console.log('server is up'));
+app.listen(port, ()=> console.log('server is up'));
